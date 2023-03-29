@@ -46,15 +46,15 @@ for (type, value) in elements {
  */
 var total = 0.0
 
-for (type, value) in elements {
+for (_, value) in elements {
     if let doubleValue = value as? Double {
         total += doubleValue
     } else if let integerValue = value as? Int {
         total += Double(integerValue)
-    } else if let stringValue = value as? String {
-        total += 1
     } else if let boolValue = value as? Bool {
         total = boolValue == true ? total + 2 : total - 3
+    } else {
+        total += 1
     }
 }
 
@@ -65,7 +65,7 @@ print(total)
  */
 total = 0
 
-for (type, value) in elements {
+for (_, value) in elements {
     if let integerValue = value as? Int {
         total += Double(integerValue)
     } else if let doubleValue = value as? Double {
