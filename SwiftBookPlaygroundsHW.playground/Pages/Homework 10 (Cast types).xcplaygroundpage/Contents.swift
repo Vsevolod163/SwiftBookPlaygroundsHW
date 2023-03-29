@@ -76,6 +76,7 @@ for (_, value) in elements {
 }
 
 print(total)
+print()
 /*:
 Упражнение для приложения - типы тренировок
 
@@ -96,7 +97,7 @@ class Workout {             // тренировка
     }
 }
 
-class Run: Workout {    // бег
+final class Run: Workout {    // бег
     let cadence: Double // темп
     
     init(cadence: Double, time: Double, distance: Double) {
@@ -105,7 +106,7 @@ class Run: Workout {    // бег
     }
 }
 
-class Swim: Workout {   // плавание
+final class Swim: Workout {   // плавание
     let stroke: String  // стиль
     
     init(stroke: String, time: Double, distance: Double) {
@@ -125,12 +126,17 @@ var workouts: [Workout] = [
 /*:
  Напишите функции `describeRun(runningWorkout:)` и `describeSwim(swimmingWorkout:)`, принимающие объекты типа `Run` и `Swim` соответственно. Ни одна не должна возвращать значений. Каждая функция должна вывести описание тренировки, включая темп бега, либо стиль плавания. Время представлено в секундах, расстояние — в метрах, темп — в шагах в минуту.
  */
+func describeRun(runningWorkout: Run) {
+    print("Темп: \(runningWorkout.cadence)\nВремя: \(runningWorkout.time)\nДистанция: \(runningWorkout.distance)\n")
+}
 
+func describeSwim(swimmingWorkout: Swim) {
+    print("Cтиль: \(swimmingWorkout.stroke)\nВремя: \(swimmingWorkout.time)\nДистанция: \(swimmingWorkout.distance)\n")
+}
 
 /*:
  Переберите все тренировки в массиве `workouts` и, с помощью приведения типов, вызовите либо `describeRun(runningWorkout:)`, либо `describeSwim(swimmingWorkout:)` для каждого. Обратите внимание, что будет выведено в консоль.
  */
-
 
 /*:
  
