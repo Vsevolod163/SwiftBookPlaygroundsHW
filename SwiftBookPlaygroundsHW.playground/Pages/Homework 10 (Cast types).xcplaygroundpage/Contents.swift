@@ -44,8 +44,22 @@ for (type, value) in elements {
 /*:
  1.4 Создайте переменную `total` типа `Double`, равную 0. Переберите все значения словаря, и добавьте значение каждого целого и дробного числа к значению вашей переменной. Для каждой строки добавьте 1. Для каждого булева значения, добавьте 2, в случае, если значение равно `true`, либо вычтите 3, если оно `false`. Выведите на консоль значение `total`.
  */
+var total = 0.0
 
+for (type, value) in elements {
+    if let doubleValue = value as? Double {
+        total += doubleValue
+    } else if let integerValue = value as? Int {
+        total += Double(integerValue)
+    } else if let stringValue = value as? String {
+        total += 1
+    } else if let boolValue = value as? Bool {
+        total = boolValue == true ? total + 2 : total - 3
+    }
+}
 
+print()
+print(total)
 /*:
  1.5 Обнулите переменную total и снова пройдите по всей коллекции, прибавляя к ней все целые и вещественные числа.  Для каждой строки, встретившейся на пути, попробуйте сконвертировать её в число, и добавьте это значение к общему. Игнорируйте булевы значения.  Распечатайте итог.
  */
