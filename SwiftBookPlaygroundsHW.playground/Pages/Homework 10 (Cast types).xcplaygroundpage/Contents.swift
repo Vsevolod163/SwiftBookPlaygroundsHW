@@ -75,14 +75,32 @@ for (_, value) in elements {
     } else if let integerValue = value as? Int {
         total += Double(integerValue)
     } else if let boolValue = value as? Bool {
-        total = boolValue == true ? total + 2 : total - 3
-    } else {
+        total += boolValue ? 2 : -3
+    } else if value is String {
         total += 1
     }
 }
 
-print()
 print(total)
+print()
+
+for value in elements {
+    switch value {
+    case let value as Double:
+        total += value
+    case let value as Int:
+        total += Double(value)
+    case let value as Bool:
+        total += value ? 2 : -3
+    case is String:
+        total += 1
+    default:
+        break
+    }
+}
+
+print(total)
+print()
 /*:
  1.5 Обнулите переменную total и снова пройдите по всей коллекции, прибавляя к ней все целые и вещественные числа.  Для каждой строки, встретившейся на пути, попробуйте сконвертировать её в число, и добавьте это значение к общему. Игнорируйте булевы значения.  Распечатайте итог.
  */
