@@ -46,24 +46,24 @@ print()
  */
 let elements: [String: Any] = [
     "firstBool": false,
-    "Double": 5.5,
+    "Double": 7.5,
     "firstString": "Hello",
     "Integer": 7,
     "secondBool": true,
     "secondString": "5"
 ]
 
-for (type, value) in elements {
-    if value is Double {
-        print("\(type): \(value)")
-    } else if value is String {
-        print("\(type): \(value)")
-    } else if value is Int {
-        print("\(type): \(value)")
-    } else {
-        print("\(type): \(value)")
-    }
+for element in elements {
+    print("Key: \(element.key), Value: \(element.value)")
 }
+
+print()
+
+for (type, value) in elements {
+    print("\(type) \(value)")
+}
+
+print()
 /*:
  1.4 Создайте переменную `total` типа `Double`, равную 0. Переберите все значения словаря, и добавьте значение каждого целого и дробного числа к значению вашей переменной. Для каждой строки добавьте 1. Для каждого булева значения, добавьте 2, в случае, если значение равно `true`, либо вычтите 3, если оно `false`. Выведите на консоль значение `total`.
  */
