@@ -20,10 +20,27 @@ for item in items {
         print("Дробное число")
     } else if item is String {
         print("Строка")
-    } else {
-        print("Булевое значение\n")
+    } else if item is Bool {
+        print("Булевое значение")
     }
 }
+print()
+
+for item in items {
+    switch item {
+    case is Int:
+        print("\(item) is Integer")
+    case is String:
+        print("\(item) is String")
+    case is Bool:
+        print("\(item) is Bool")
+    case is Double:
+        print("\(item) is Double")
+    default:
+        print("Unknown value: \(item)")
+    }
+}
+print()
 /*:
  1.3 Создайте словарь [String : Any], где все значения — это смесь дробных и целых чисел, строк и булевых значений. Переберите словарь и выведете на консоль пары ключ/значения для всех элементов коллекции.
  */
